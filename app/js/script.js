@@ -1,14 +1,3 @@
-/* 
-The first time the page is loaded, the color mode set on the preference 
-is used and set as 'default' in the local storage. 
-Changing the default preferences works the same way as changing the 
-color mode using the buttons, if the page is loaded.
-When the page is reloaded, whatever is the value set on the local storage
-has precedence over the values in the preference. If the preference
-changed after the page was visited - and the page is not loaded - 
-the last value saved on the local storage is loaded. 
-*/
-
 const darkButton = document.getElementById('dark');
 const lightButton = document.getElementById('light');
 
@@ -33,7 +22,7 @@ const colorModeFromPreferences = () => {
 };
 
 const loadAndUpdateColor = () => {
-  // local storage has precendence over the prefers-color-scheme
+  // local storage has precedence over the prefers-color-scheme
   const color = colorModeFromLocalStorage() || colorModeFromPreferences();
   color == 'dark' ? darkButton.click() : lightButton.click();
 };
